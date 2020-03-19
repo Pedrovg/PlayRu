@@ -16,8 +16,14 @@ class GoalsController < ApplicationController
   def create
     @goal = Goal.new(goal_params)
     authorize @goal
+    @goal.user = current_user
+     if @goal.save!
+      redirect_to goals_path
+    else
+      render_errors
+    end
   end
-
+  
   private
 
   def goal_params

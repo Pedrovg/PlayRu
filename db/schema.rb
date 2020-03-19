@@ -10,10 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_03_19_170400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
 
   create_table "dificulties", force: :cascade do |t|
     t.datetime "created_at", null: false
