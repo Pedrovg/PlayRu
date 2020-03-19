@@ -10,12 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2020_03_19_170400) do
+ActiveRecord::Schema.define(version: 2020_03_19_190648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
 
   create_table "dificulties", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -26,6 +24,8 @@ ActiveRecord::Schema.define(version: 2020_03_19_170400) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
   create_table "roles", force: :cascade do |t|
