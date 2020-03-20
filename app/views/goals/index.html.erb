@@ -1,9 +1,10 @@
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href=stats_path>Stats</a>
+  <%= link_to "Goals", goals_path %>
 </div>
 
-<span onclick="openNav()">open</span>
+<i class="fas fa-bars" onclick="openNav()"></i>
 
 <script>
   function openNav() {
@@ -17,6 +18,7 @@ function closeNav() {
 }
 </script>
 
+
 <div class="container">
   <% if @goals.present? %>
   <a href="goals/new">+</a>
@@ -28,7 +30,7 @@ function closeNav() {
     <% else %>
     <%= "No goals yet?" %>
     <div>
-      <a href='goals/new'>Set some</a>
+      <a href='goals/new' class="btn btn-danger">Set some</a>
     </div>
     <% end %>
 </div>

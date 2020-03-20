@@ -1,1 +1,25 @@
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href=stats_path>Stats</a>
+  <%= link_to "Goals", goals_path %>
+</div>
+
+<i class="fas fa-bars" onclick="openNav()"></i>
+
+<script>
+  function openNav() {
+  document.getElementById("mySidenav").style.width = "60%";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.body.style.backgroundColor = "white";
+}
+</script>
+
 <%= @goal.name %>
+
+<%= link_to "Delete", goal_path, method: :delete, class: "btn btn-danger" %>
+<%= link_to "Edit", edit_goal_path %>
+
