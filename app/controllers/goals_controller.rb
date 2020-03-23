@@ -4,11 +4,12 @@ class GoalsController < ApplicationController
   def index
     @goals = Goal.all
     @goals = policy_scope(Goal).order(created_at: :desc)
-    @user = policy_scope(Goal)
   end
 
   def new
     @goal = Goal.new
+    @role = Role.new
+    @dificulty = Dificulty.new
     authorize @goal
   end
 
@@ -55,7 +56,7 @@ class GoalsController < ApplicationController
   private
 
   def goal_params
-    params.require(:goal).permit(:name)
+    params.require(:goal).permit(:name, :roles_attributes => [:type], :dificulties_attributes => [:exp])
   end
 
   def set_goal

@@ -20,6 +20,7 @@ function closeNav() {
 
 
 <div class="container">
+  <%= current_user.experience %>
   <% if @goals.present? %>
   <a href="goals/new">+</a>
     <li style="list-style-type: none;">

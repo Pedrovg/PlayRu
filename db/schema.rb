@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_19_190648) do
+ActiveRecord::Schema.define(version: 2020_03_23_181254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_03_19_190648) do
   create_table "dificulties", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "exp"
   end
 
   create_table "goals", force: :cascade do |t|
@@ -31,8 +32,8 @@ ActiveRecord::Schema.define(version: 2020_03_19_190648) do
   create_table "roles", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
     t.string "photo"
+    t.string "type"
   end
 
   create_table "users", force: :cascade do |t|
