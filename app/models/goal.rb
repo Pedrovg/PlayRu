@@ -4,4 +4,5 @@ class Goal < ApplicationRecord
   has_one :dificulty
 
   validates :name, presence: true
+  delegate :experience, to: :user
 end
