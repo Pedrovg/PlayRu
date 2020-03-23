@@ -25,7 +25,7 @@ function closeNav() {
   <a href="goals/new">+</a>
     <li style="list-style-type: none;">
     <% @goals.each do |goal| %>
-    <ul class="card"><%= link_to goal.name,goal_path(goal) %></ul>
+    <ul class="card"><%= link_to goal.name,goal_path(goal) %>    </ul>
     <% end %>
     </li>
     <% else %>

@@ -3,6 +3,7 @@ class GoalsController < ApplicationController
 
   def index
     @goals = Goal.all
+    @roles = Role.all
     @goals = policy_scope(Goal).order(created_at: :desc)
   end
 

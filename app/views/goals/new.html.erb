@@ -19,7 +19,8 @@ function closeNav() {
 </script>
 
 <h1>New Goal</h1>
-  <%= simple_form_for @goal do |f| %>
+<div class="col-lg-4 col-sm-6 sec-back">
+  <div class="col form-inputs"><%= simple_form_for @goal do |f| %>
     <%= f.input :name %>
 
     <%= f.simple_fields_for :roles do |w| %>
@@ -31,4 +32,5 @@ function closeNav() {
     <% end %>
 
     <%= f.button :submit,"Submit", class: "btn btn-flat" %>
-<% end %>
+<% end %></div>
+</div>
