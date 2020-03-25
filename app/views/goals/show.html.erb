@@ -19,7 +19,7 @@ function closeNav() {
 </script>
 
 <%= @goal.name %>
-
+<%= @goal.roles %>
 <%= link_to "Delete", goal_path, method: :delete, class: "btn btn-danger" %>
 <%= link_to "Edit", edit_goal_path %>
 

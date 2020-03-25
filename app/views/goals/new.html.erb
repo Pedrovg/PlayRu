@@ -4,7 +4,7 @@
   <%= link_to "Goals", goals_path %>
 </div>
 
-<i class="fas fa-bars" onclick="openNav()"></i>
+<i class="fas fa-bars" style="color:white;" onclick="openNav()"></i>
 
 <script>
   function openNav() {
@@ -17,20 +17,23 @@ function closeNav() {
   document.body.style.backgroundColor = "white";
 }
 </script>
+<div class="container backg">
+  <h1 style="color:white; margin-left: 65px;">New Goal</h1>
+  <div class="col-lg-4 col-sm-6">
+    <div class="col form-inputs" style="margin-top: 100px;">
+      <%= simple_form_for @goal do |f| %>
+        <%= f.input :name %>
 
-<h1>New Goal</h1>
-<div class="col-lg-4 col-sm-6 sec-back">
-  <div class="col form-inputs"><%= simple_form_for @goal do |f| %>
-    <%= f.input :name %>
+        <%= f.simple_fields_for :roles do |w| %>
+        <%= w.input :role_id, collection: ["Brain", "Muscle", "Specialty"], value: @role.id %>
+        <% end %>
 
-    <%= f.simple_fields_for :roles do |w| %>
-      <%= w.input :type, collection: ["Brain", "Muscle", "Specialty"] %>
-    <% end %>
+        <%= f.simple_fields_for :dificulties do |w| %>
+          <%= w.input :dificulty_id, collection: [5, 20, 50] %>
+        <% end %>
 
-    <%= f.simple_fields_for :dificulties do |w| %>
-      <%= w.input :exp, collection: [5, 20, 50] %>
-    <% end %>
-
-    <%= f.button :submit,"Submit", class: "btn btn-flat" %>
-<% end %></div>
+        <%= f.button :submit,"Submit", class: "btn btn-flat" %>
+      <% end %>
+    </div>
+  </div>
 </div>
