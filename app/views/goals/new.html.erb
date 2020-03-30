@@ -23,14 +23,8 @@ function closeNav() {
     <div class="col form-inputs" style="margin-top: 100px;">
       <%= simple_form_for @goal do |f| %>
         <%= f.input :name %>
-
-        <%= f.simple_fields_for :roles do |w| %>
-        <%= w.input :role_id, collection: ["Brain", "Muscle", "Specialty"], value: @role.id %>
-        <% end %>
-
-        <%= f.simple_fields_for :dificulties do |w| %>
-          <%= w.input :dificulty_id, collection: [5, 20, 50] %>
-        <% end %>
+        <%= f.input :role, collection: ["Brain", "Muscle", "Specialty"]%>
+        <%= f.input :exp, collection: [5, 20, 50] %>
 
         <%= f.button :submit,"Submit", class: "btn btn-flat" %>
       <% end %>
