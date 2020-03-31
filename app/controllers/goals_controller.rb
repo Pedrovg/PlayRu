@@ -12,11 +12,6 @@ class GoalsController < ApplicationController
     authorize @goal
   end
 
-  def show
-    @goal = Goal.find(params[:id])
-    authorize @goal
-  end
-
   def create
     @goal = Goal.new(goal_params)
     authorize @goal

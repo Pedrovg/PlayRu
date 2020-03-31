@@ -13,10 +13,6 @@ class GoalPolicy < ApplicationPolicy
     true
   end
 
-  def show?
-    true
-  end
-
   def update?
     user_is_owner?
   end

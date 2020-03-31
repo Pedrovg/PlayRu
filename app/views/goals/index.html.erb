@@ -10,7 +10,7 @@
 <script>
   function openNav() {
   document.getElementById("mySidenav").style.width = "60%";
-  document.body.style.backgroundColor = "rgba(0,0,0,1)";
+  document.body.style.backgroundColor = "rgba(0,0,1)";
 }
 
 function closeNav() {
@@ -20,9 +20,16 @@ function closeNav() {
 
 
 <div class="container">
-  <%= "Lv." %> <%= current_user.experience %>
+  <div class="d-flex justify-content-end">
+    <div class="circle d-flex justify-content-center align-items-center">
+      <%= "Lv." %> <%= content_tag(:p, current_user.experience, class:"exp-num") %>
+    </div>
+  </div>
   <% if @goals.present? %>
-  <a href="goals/new">+</a>
+        <%= link_to "Muscle",  class:"btn btn-danger mb-3" %>
+    <div class="d-flex justify-content-end">
+      <a class="plus d-flex justify-content-center align-items-center" href="goals/new">+</a>
+    </div>
     <li style="list-style-type: none;">
     <% @goals.each do |goal| %>
     <ul class="card">
@@ -46,6 +53,8 @@ function closeNav() {
       <% elsif goal.exp == 50 %>
           <%= "Hard:" %> <%= goal.exp %>
       <% end %>
+      <%= link_to "Delete", goal_path(goal), method: :delete, class: "btn" %>
+      <%= link_to "Edit", edit_goal_path(goal), class: "btn" %>
     </ul>
     <% end %>
     </li>
