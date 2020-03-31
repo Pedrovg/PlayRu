@@ -87,6 +87,31 @@
   color: white;
 }
 
-a {
-  //color: white;
+.circle {
+  height: 128px;
+  width: 128px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: rgba(255, 191, 191, 0.13);
+  color: white;
+  position: relative;
+  border: 2px solid white;
+}
+
+.plus {
+  border: 1px solid white;
+  color: #BC3F3F;
+  width: 28px;
+  height: 28px;
+  background-color: #EAEAEA;
+  border-radius: 3px;
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.exp-num {
+  font-size: 50px;
+  font-weight: bold;
 }
