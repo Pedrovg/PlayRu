@@ -31,7 +31,7 @@ class GoalsController < ApplicationController
     authorize @goal
     if @goal.update(goal_params)
       @goal.save
-      redirect_to goal_path
+      redirect_to goals_path
     else
       puts @goal.errors.messages
       render :edit
