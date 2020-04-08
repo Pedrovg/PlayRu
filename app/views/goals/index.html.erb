@@ -8,7 +8,7 @@
 <i class="fas fa-bars" style="color:white" onclick="openNav()"></i>
 
 <script>
-  function openNav() {
+function openNav() {
   document.getElementById("mySidenav").style.width = "60%";
   document.body.style.backgroundColor = "rgba(0,0,1)";
 }
@@ -20,6 +20,10 @@ function closeNav() {
 
 
 <div class="container">
+  <%= link_to "All", { controller: "goals", action: "index" }, class:"btn btn-light mb-3 filter #{'filter_selected' unless params[:role] == 'Muscle' || params[:role] == 'Brain' || params[:role] == 'Specialty'}" %>
+  <%= link_to "Muscle", @params.merge({ controller: "goals", action: "index", role: 'Muscle' }), class:"btn btn-light mb-3 filter #{'filter_selected' if params[:role] == 'Muscle'}" %>
+  <%= link_to "Brain", @params.merge({ controller: "goals", action: "index", role: 'Brain' }), class:"btn btn-light mb-3 filter #{'filter_selected' if params[:role] == 'Brain'}" %>
+  <%= link_to "Specialty", @params.merge({ controller: "goals", action: "index", role: 'Specialty' }), class:"btn btn-light mb-3 filter #{'filter_selected' if params[:role] == 'Specialty'}" %>
   <div class="d-flex justify-content-end">
     <div class="circle d-flex justify-content-center align-items-center">
       <%= "Lv." %> <%= content_tag(:p, current_user.experience, class:"exp-num") %>

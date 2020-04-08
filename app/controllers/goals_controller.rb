@@ -2,9 +2,16 @@ class GoalsController < ApplicationController
   before_action :set_goal, only: [ :edit, :update, :destroy]
 
   def index
-    @goals = Goal.all
     @goals = policy_scope(Goal).order(created_at: :desc)
     @goals = current_user.goals
+    filter_goals
+    @params = params.permit(:role)
+  end
+
+  def filter_goals
+    if params[:role]
+      @goals = @goals.where(role: params[:role])
+    end
   end
 
   def new
