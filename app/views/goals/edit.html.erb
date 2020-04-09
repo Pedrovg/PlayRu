@@ -1,9 +1,36 @@
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href=/stats>Stats</a>
+  <%= link_to "Goals", goals_path %>
+  <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+</div>
+
+<i class="fas fa-bars" style="color:white" onclick="openNav()"></i>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "60%";
+  document.body.style.backgroundColor = "rgba(0,0,1)";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
 <div class="container">
-  <h3>Edit Goal</h3>
-  <%= simple_form_for @goal do |f| %>
-    <%= f.input :name %>
-    <%= f.input :role, collection: ["Brain", "Muscle", "Specialty"] %>
-    <%= f.input :exp, collection: [5, 20, 50] %>
-    <%= f.button :submit, class: "btn btn-flat" %>
-  <% end %>
+  <div id="back">
+    <h1 style="color:white;">Edit Goal</h1>
+  </div>
+  <div id="back">
+    <a href="/goals">Back to goals</a>
+  </div>
+  <div class="col form-inputs" style="margin-top: 100px;">
+    <%= simple_form_for @goal do |f| %>
+      <%= f.input :name %>
+      <%= f.input :role, collection: ["Brain", "Muscle", "Specialty"] %>
+      <%= f.input :exp, collection: [5, 20, 50] %>
+      <%= f.button :submit, class: "btn btn-flat" %>
+    <% end %>
+  </div>
 </div>

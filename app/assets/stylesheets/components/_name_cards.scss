@@ -6,18 +6,32 @@
 .brain-card {
   background-color: #3E95BB;
   width: 40%;
+  color: white;
 }
 
 .specialty-card {
   background-color: #4DBB58;
   width: 40%;
+  color: white;
 }
 
 .muscle-card {
   background-color: #FB3838;
   width: 40%;
+  color: white;
 }
 
 a {
   color: white;
+}
+
+a:active {
+  text-decoration: none;
+  color: gray;
+}
+
+#back {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid white;
 }

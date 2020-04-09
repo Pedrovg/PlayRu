@@ -2,6 +2,7 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href=stats_path>Stats</a>
   <%= link_to "Goals", goals_path %>
+  <%= link_to "Log out", destroy_user_session_path, method: :delete %>
 </div>
 
 <i class="fas fa-bars" style="color:white;" onclick="openNav()"></i>
@@ -18,7 +19,12 @@ function closeNav() {
 }
 </script>
 <div class="container backg">
-  <h1 style="color:white; margin-left: 65px;">New Goal</h1>
+  <div id="back">
+    <h1 style="color:white;">New Goal</h1>
+  </div>
+  <div id="back">
+    <a href="/goals">Back to goals</a>
+  </div>
   <div class="col-lg-4 col-sm-6">
     <div class="col form-inputs" style="margin-top: 100px;">
       <%= simple_form_for @goal do |f| %>
