@@ -67,6 +67,7 @@ function closeNav() {
           <%= "Hard:" %> <%= goal.exp %>
       <% end %>
       <div class="d-flex justify-content-end">
+        <%= link_to "Done", goal_levelup_path(goal) , class: "cust-btn"%>
         <%= link_to "Delete", goal_path(goal), method: :delete, class: "cust-btn" %>
         <%= link_to "Edit", edit_goal_path(goal), class: "cust-btn" %>
       </div>
