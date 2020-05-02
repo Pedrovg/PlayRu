@@ -1,5 +1,5 @@
-class GoalsController < ApplicationController
-  before_action :set_goal, only: [ :edit, :update, :destroy]
+  class GoalsController < ApplicationController
+  before_action :set_goal, only: [ :edit, :update, :destroy, :levelup, :show]
 
   def index
     @goals = policy_scope(Goal).order(created_at: :desc)
@@ -12,6 +12,11 @@ class GoalsController < ApplicationController
     if params[:role]
       @goals = @goals.where(role: params[:role])
     end
+  end
+
+  def show
+    authorize @goal
+    redirect_to goals_path
   end
 
   def new
@@ -54,6 +59,18 @@ class GoalsController < ApplicationController
     end
   end
 
+  def levelup
+    authorize @goal
+    @level = goal.exp + current_user.exp_bar
+    raise
+    @destroy
+    if @level == 100
+      current_user.experience + 1
+      @level = 0
+    end
+    redirect_to goals_path
+  end
+
   private
 
   def goal_params
@@ -61,6 +78,6 @@ class GoalsController < ApplicationController
   end
 
   def set_goal
-      @goal = Goal.find(params[:id])
+    @goal = Goal.find(params[:id])
   end
 end
